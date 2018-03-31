@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'ToDoList';
   form: FormGroup;
+  inputValue = '';
   toDoListItems: Array<{
         toDoText: string,
         fullfield: boolean,
@@ -36,9 +37,10 @@ export class AppComponent implements OnInit {
   }
   addToDo() {
     this.toDoListItems.push({
-        toDoText: this.form.value.toDoInput,
+        toDoText: this.inputValue,
         fullfield: false,
         id: this.getRandomInt(0, 100000)
     });
+    this.inputValue = '';
   }
 }

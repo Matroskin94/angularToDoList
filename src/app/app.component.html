@@ -6,7 +6,7 @@
   <form [formGroup]="form" (ngSubmit)="addToDo()">
     <div>
       <div class="itemHeader">
-        <p *ngIf="form.get('toDoInput').invalid" >Добавьте задание</p>
+        <p *ngIf="inputValue === ''" >Добавьте задание</p>
       </div>
       <div class="input-group mb-3">
         <input
@@ -15,7 +15,9 @@
           placeholder="ToDo"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          formControlName="toDoInput"        >
+          formControlName="toDoInput"
+          [(ngModel)]="inputValue" 
+        >
         <div class="input-group-append">
           <button
             class="btn btn-primary"
