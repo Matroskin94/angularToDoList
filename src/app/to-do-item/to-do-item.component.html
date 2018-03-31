@@ -1,0 +1,12 @@
+<div class="toDoItem">
+    <div class="toDoText" (click)="handleFullFill()">
+        <p [ngStyle]="{textDecoration: toDoItem.fullfield ? 'line-through' : 'none'}">
+            <span class="toDoNumber">#{{idx + 1}}</span> {{toDoItem.toDoText}}
+        </p>
+    </div>
+    <div class="toDoClose" (click)="handleDelete()">
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>

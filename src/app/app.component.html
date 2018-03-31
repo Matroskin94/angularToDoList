@@ -1,9 +1,43 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="toDoContainer">
   <h1 class="header">
     Welcome to {{ title }}!
   </h1>
-  <input type="text" name="" placeholder="ToDo">
-  <button>Add ToDo</button>
+  <form [formGroup]="form" (ngSubmit)="addToDo()">
+    <div>
+      <div class="itemHeader">
+        <p *ngIf="inputValue === ''" >Добавьте задание</p>
+      </div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ToDo"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          formControlName="toDoInput"
+          [(ngModel)]="inputValue" 
+        >
+        <div class="input-group-append">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="form.invalid"
+          >Добавить
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="itemList">
+    <app-to-do-item
+      *ngFor="let item of toDoListItems; let i = index "
+      [idx] = "i"
+      [toDoItem] = "item"
+      (onFullFill) = "onFullFiled($event)"
+      (onDelete) = "onDeleted($event)"
+    >
+    </app-to-do-item>
+  </div>
 </div>
 

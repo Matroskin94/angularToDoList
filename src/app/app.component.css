@@ -1,3 +1,15 @@
-.header{
+.toDoContainer {
+    width: 410px;
+    margin: 20px auto;
+}
+.header {
     color:blue;
+}
+
+.itemHeader {
+    height: 2em;
+}
+
+.itemList {
+    margin-top: 20px;
 }
