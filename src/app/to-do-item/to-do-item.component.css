@@ -1,3 +1,28 @@
 .toDoNumber{
     font-weight: bold;
 }
+
+.toDoItem {
+    width: 100%;
+    padding: 5px;
+    background-color: #FAFBFE;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+.toDoText {
+    display: inline-block;
+    word-wrap: break-word;
+    width: 380px;
+}
+.toDoText p{
+    margin: 2px 0px;
+}
+
+.toDoText:hover {
+    cursor: pointer;
+}
+
+.toDoClose {
+    display: inline-block;
+    float: right;
+}

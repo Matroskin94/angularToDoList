@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-to-do-item',
@@ -12,10 +12,16 @@ export class ToDoItemComponent implements OnInit {
         fullfield: boolean,
         id: number
     };
-    @Input() idx: number
-    toDoNumber = 1;
-    toDoText = 'Finish Angular Todo Application'    
+    @Input() idx: number;
+    @Output('onFullFill') emitFullFill = new EventEmitter<number>();
+    @Output('onDelete') emitDelete = new EventEmitter<number>();
 
+    handleFullFill(){
+        this.emitFullFill.emit(this.toDoItem.id);
+    }
+    handleDelete(){
+        this.emitDelete.emit(this.toDoItem.id);
+    }
     ngOnInit() {
     }
 

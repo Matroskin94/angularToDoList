@@ -15,21 +15,27 @@
           placeholder="ToDo"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          formControlName="toDoInput"
-        >
+          formControlName="toDoInput"        >
         <div class="input-group-append">
           <button
             class="btn btn-primary"
             type="submit"
             [disabled]="form.invalid"
-          >Button
+          >Добавить
           </button>
         </div>
       </div>
     </div>
   </form>
   <div class="itemList">
-    <app-to-do-item *ngFor="let item of toDoListItems; let i = index " [idx] = "i" [toDoItem] = "item"></app-to-do-item>
+    <app-to-do-item
+      *ngFor="let item of toDoListItems; let i = index "
+      [idx] = "i"
+      [toDoItem] = "item"
+      (onFullFill) = "onFullFiled($event)"
+      (onDelete) = "onDeleted($event)"
+    >
+    </app-to-do-item>
   </div>
 </div>
 
